@@ -2,5 +2,5 @@
 
 # Embedded QA Test Demo
 
-![Tests](https://github.com/YOUR-USERNAME/embedded-qa-test-demo/actions/workflows/python-tests.yml/badge.svg)
+![Tests](https://github.com/dbuonopane/embedded-qa-test-demo/actions/workflows/python-tests.yml/badge.svg)
 
