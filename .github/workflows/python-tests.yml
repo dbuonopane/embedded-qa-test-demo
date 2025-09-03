@@ -30,4 +30,20 @@ jobs:
       # Step 4: Run PyTest
       - name: Run tests
         run: |
-          pytest -v
+          mkdir -p logs
+          pytest --maxfail=1 --disable-warnings -q \
+                 --html=report.html --self-contained-html
+
+      # Step 5: Upload PyTest HTML report
+      - name: Upload test report
+        uses: actions/upload-artifact@v3
+        with:
+          name: pytest-report
+          path: report.html
+
+      # Step 6: Upload log file
+      - name: Upload logs
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-logs
+          path: logs/test.log
