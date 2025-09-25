@@ -1,4 +1,5 @@
 import logging
+import random 
 
 #config logging
 logging.basicConfig(
@@ -11,14 +12,14 @@ def checksum(data: list[int]) -> int:
     """Simulates checksum calculation for embedded packet validation"""
     result = sum(data) & 0xFF
     logging.info(f"Checksum called with {data}, result={result}")
-    return result, sum(data) & 0xFF  # simulate 8-bit checksum
+    return result & 0xFF  # simulate 8-bit checksum
 
 def temperature_sensor(raw_value: int) -> float:
     """Convert raw ADC sensor reading into temperature (Celsius)"""
     base = (raw_value / 1023.0) * 100.0  # scale 0-100°C
     noise = random.uniform(-0.5, 0.5) #simulates sensor error
     temp  = base + noise
-    logging.info(f"Temp sensor raw ={raw_value}, temp = {temp:.2f}"
+    logging.info(f"Temp sensor raw ={raw_value}, temp = {temp:.2f}")
     return temp
 
 def voltage_monitor(voltage: float) -> bool:

@@ -1,5 +1,6 @@
+import random
 import pytest
-from src.embedded_functions import temperature_sensor, voltage_monitor
+from src.embedded_functions import temperature_sensor, voltage_monitor, battery_voltage_trace, system_operational
 
 def test_temperature_conversion():
     raw = 512  # mid-scale ADC value
